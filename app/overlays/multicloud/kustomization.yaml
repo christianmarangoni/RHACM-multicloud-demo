@@ -5,6 +5,6 @@ bases:
   - ../../base/
 
 resources:
-- PlacementRule-QuickStartApp.yaml
-- Subscription-QuickStartApp.yaml
-- Application-QuickStartApp.yaml
+- placementrule-quickstartapp.yaml
+- subscription-quickstartapp.yaml
+- application-quickstartApp.yaml
