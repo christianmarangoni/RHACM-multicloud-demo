@@ -7,3 +7,4 @@ bases:
 resources:
 - PlacementRule-QuickStartApp.yaml
 - Subscription-QuickStartApp.yaml
+- Application-QuickStartApp.yaml
