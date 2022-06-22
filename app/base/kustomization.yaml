@@ -1,0 +1,7 @@
+resources:
+- Channel-QuickStartApp.yaml
+- Channel-Rhacm.yaml
+- Namespace-Channel.yaml
+- Namespace-QuickStartApp.yaml
+
+
