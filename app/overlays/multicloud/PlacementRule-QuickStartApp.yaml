@@ -9,3 +9,4 @@ spec:
   clusterSelector:
     matchLabels:
       local-cluster: 'true'
+      env: 'multicloud'
