@@ -2,7 +2,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: pl-root
-  namespace: ns-root
+  namespace: quick-start-test
 spec:
   clusterSelector:
     matchLabels:

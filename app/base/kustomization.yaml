@@ -8,4 +8,5 @@ resources:
 - placementrule-root.yaml
 - namespace-quickstartapp.yaml
 - namespace-channel.yaml
+- channel-quickstartapp.yaml
 #- ../overlays/multicloud/quick-start-app/

@@ -6,7 +6,7 @@ metadata:
     apps.open-cluster-management.io/git-path: app/overlays
     apps.open-cluster-management.io/reconcile-option: replace
   name: sub-root
-  namespace: ns-root
+  namespace: quick-start-test
 spec:
   channel: ns-channel/ch-rhacm
   placement:
