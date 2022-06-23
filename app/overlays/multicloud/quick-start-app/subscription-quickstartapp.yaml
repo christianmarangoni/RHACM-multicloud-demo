@@ -8,9 +8,9 @@ metadata:
   labels:
     app: quick-start-app
   name: sub-quick-start-app
-  namespace: ns-quick-start-app
+  namespace: quick-start-test
 spec:
-  channel: ns-quick-start-app/ch-quick-start-app
+  channel: quick-start-test/ch-quick-start-app
   placement:
     placementRef:
       kind: PlacementRule

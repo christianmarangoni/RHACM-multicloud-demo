@@ -4,7 +4,7 @@ metadata:
   annotations:
     apps.open-cluster-management.io/reconcile-rate: high
   name: ch-quick-start-app
-  namespace: ns-quick-start-app
+  namespace: quick-start-test
   labels:
     app: quick-start-app
 spec:
