@@ -5,8 +5,6 @@ metadata:
     apps.open-cluster-management.io/reconcile-rate: high
   name: ch-rhacm
   namespace: ns-channel
-  labels:
-    app: rhacm
 spec:
   type: Git
   pathname: 'https://github.com/christianmarangoni/RHACM-multicloud-demo.git'
