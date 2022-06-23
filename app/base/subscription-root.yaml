@@ -4,7 +4,7 @@ metadata:
   annotations:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-path: app/overlays
-    apps.open-cluster-management.io/reconcile-option: merge
+    apps.open-cluster-management.io/reconcile-option: replace
   name: sub-root
   namespace: ns-root
 spec:
