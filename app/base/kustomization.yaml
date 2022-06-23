@@ -8,4 +8,4 @@ resources:
 - namespace-quickstartapp.yaml
 - namespace-channel.yaml
 - channel-quickstartapp.yaml
-#- ../overlays/multicloud/quick-start-app/
+- namespace-tekton.yaml
