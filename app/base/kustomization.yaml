@@ -6,8 +6,5 @@ resources:
 - namespace-root.yaml
 - subscription-root.yaml
 - placementrule-root.yaml
+- namespace-quickstartapp.yaml
 #- ../overlays/multicloud/quick-start-app/
-
-
-
-
