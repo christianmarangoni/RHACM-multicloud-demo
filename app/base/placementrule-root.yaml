@@ -1,10 +1,8 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  labels:
-    app: quick-start-app
-  name: pl-quick-start-app
-  namespace: ns-quick-start-app
+  name: pl-root
+  namespace: ns-root
 spec:
   clusterSelector:
     matchLabels:

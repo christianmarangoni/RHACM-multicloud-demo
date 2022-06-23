@@ -6,8 +6,10 @@ metadata:
     apps.open-cluster-management.io/git-path: app/overlays
     apps.open-cluster-management.io/reconcile-option: merge
   name: sub-root
-  namespace: ns-sub-root
+  namespace: ns-root
 spec:
-  channel: ns-channel/ch-rhacm
+  channel: ns-root/ch-rhacm
   placement:
-    local: true
+    placementRef:
+      kind: PlacementRule
+      name: pl-root
