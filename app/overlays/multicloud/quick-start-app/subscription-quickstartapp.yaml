@@ -10,7 +10,7 @@ metadata:
   name: sub-quick-start-app
   namespace: quick-start-test
 spec:
-  channel: quick-start-test/ch-quick-start-app
+  channel: ns-root/ch-quick-start-app
   placement:
     placementRef:
       kind: PlacementRule
