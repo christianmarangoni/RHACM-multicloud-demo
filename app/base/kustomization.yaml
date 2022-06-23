@@ -1,7 +1,0 @@
-resources:
-- channel-quickstartapp.yaml
-- channel-rhacm.yaml
-- namespace-channel.yaml
-- namespace-quickstartapp.yaml
-
-
