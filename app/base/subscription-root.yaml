@@ -8,7 +8,7 @@ metadata:
   name: sub-root
   namespace: ns-root
 spec:
-  channel: ns-root/ch-rhacm
+  channel: ns-channel/ch-rhacm
   placement:
     placementRef:
       kind: PlacementRule

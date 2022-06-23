@@ -4,7 +4,7 @@ metadata:
   annotations:
     apps.open-cluster-management.io/reconcile-rate: high
   name: ch-rhacm
-  namespace: ns-root
+  namespace: ns-channel
   labels:
     app: rhacm
 spec:
