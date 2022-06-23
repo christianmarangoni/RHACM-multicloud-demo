@@ -6,6 +6,8 @@ resources:
 - namespace-channel.yaml
 - namespace-sub-root.yaml
 - subscription-quickstartapp.yaml
+- ../overlays/multicloud/quick-start-app/
+
 
 
 
