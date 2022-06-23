@@ -4,10 +4,6 @@ kind: Kustomization
 resources:
 - channel-quickstartapp.yaml
 - namespace-quickstartapp.yaml
-- subscription-quickstartapp.yaml
-- placementrule-quickstartapp.yaml
-- application-quickstartapp.yaml
-
 
 
 
