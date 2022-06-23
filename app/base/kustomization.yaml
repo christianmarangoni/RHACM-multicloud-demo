@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
 - channel-rhacm.yaml
-- namespace-root.yaml
 - subscription-root.yaml
 - placementrule-root.yaml
 - namespace-quickstartapp.yaml
