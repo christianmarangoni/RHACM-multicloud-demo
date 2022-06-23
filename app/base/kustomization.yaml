@@ -3,9 +3,9 @@ kind: Kustomization
 
 resources:
 - channel-rhacm.yaml
-- namespace-channel.yaml
-- namespace-sub-root.yaml
-- subscription-quickstartapp.yaml
+- namespace-root.yaml
+- subscription-root.yaml
+- placementrule-root.yaml
 - ../overlays/multicloud/quick-start-app/
 
 
