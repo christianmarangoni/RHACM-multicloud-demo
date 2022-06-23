@@ -8,4 +8,4 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      env: 'multicloud'
+      'local-cluster': 'true'
