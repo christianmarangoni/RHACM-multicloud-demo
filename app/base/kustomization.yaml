@@ -5,8 +5,6 @@ resources:
 - channel-rhacm.yaml
 - subscription-root.yaml
 - placementrule-root.yaml
-- namespace-quickstartapp.yaml
 - namespace-channel.yaml
 - channel-quickstartapp.yaml
-- namespace-tekton.yaml
 - namespace-root.yaml
