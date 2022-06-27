@@ -77,8 +77,8 @@ metadata:
   namespace: openshift-operators
 spec:
   clusterConditions:
-    - type: ManagedClusterConditionAvailable
-      status: "True"
+  - status: "True"
+    type: ManagedClusterConditionAvailable
   clusterSelector:
-    matchLabels:
-      env: "multicloud"
+    matchExpressions:
+      - {key: name, operator: In, values: ["local-cluster"]}
