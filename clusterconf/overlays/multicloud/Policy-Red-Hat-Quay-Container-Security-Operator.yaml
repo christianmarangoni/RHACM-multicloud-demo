@@ -46,34 +46,18 @@ kind: PlacementBinding
 metadata:
   name: binding-policy-container-security-operator
 placementRef:
-  name: placemenrulet-policy-container-security-operator
+  name: placemenrule-container-security-operator
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
 - name: policy-container-security-operator
   kind: Policy
   apiGroup: policy.open-cluster-management.io
-
----
-apiVersion: policy.open-cluster-management.io/v1
-kind: PlacementBinding
-metadata:
-  name: binding-policy-container-security-operator
-  namespace: openshift-operators
-placementRef:
-  name: placemenrulet-policy-container-security-operator
-  kind: PlacementRule
-  apiGroup: apps.open-cluster-management.io
-subjects:
-  - name: policy-openshift-tekton-operator-install
-    kind: Policy
-    apiGroup: policy.open-cluster-management.io
-
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placemenrulet-container-security-operator
+  name: placemenrule-container-security-operator
   namespace: openshift-operators
 spec:
   clusterConditions:
