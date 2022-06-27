@@ -1,0 +1,42 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: openshift-tekton-operator-install
+  namespace: openshift-gitops
+  annotations:
+    policy.open-cluster-management.io/standards: NIST 800-53
+    policy.open-cluster-management.io/categories: CM Configuration Management
+    policy.open-cluster-management.io/controls: CM-2 Baseline
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: openshift-tekton-operator-install
+        spec:
+          remediationAction: enforce
+          severity: med
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operators.coreos.com/v1alpha1
+                kind: Subscription
+                metadata:
+                  name: openshift-pipelines-operator-rh
+                  namespace: openshift-operators
+                  labels:
+                    operators.coreos.com/openshift-pipelines-operator-rh.openshift-operators: ''
+                spec:
+                  channel: stable
+                  installPlanApproval: Automatic
+                  name: openshift-pipelines-operator-rh
+                  source: redhat-operators
+                  sourceNamespace: openshift-marketplace
