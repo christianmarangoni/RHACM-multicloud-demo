@@ -15,7 +15,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: openshift-tekton-operator-install
+          name: policy-openshift-tekton-operator-install
         spec:
           remediationAction: enforce
           severity: med
@@ -46,22 +46,39 @@ kind: PlacementBinding
 metadata:
   name: binding-policy-openshift-tekton-operator
 placementRef:
-  name: placement-policy-openshift-tekton-operator
+  name: placemenrulet-policy-openshift-tekton-operator
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
 - name: policy-openshift-tekton-operator-install
   kind: Policy
   apiGroup: policy.open-cluster-management.io
+
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-policy-openshift-tekton-operator
+  namespace: openshift-operators
+placementRef:
+  name: placemenrulet-policy-openshift-tekton-operator
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: policy-openshift-tekton-operator-install
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-openshift-tekton-operator
+  name: placemenrulet-policy-openshift-tekton-operator
+  namespace: openshift-operators
 spec:
   clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
+    - type: ManagedClusterConditionAvailable
+      status: "True"
   clusterSelector:
     matchLabels:
       env: "multicloud"
