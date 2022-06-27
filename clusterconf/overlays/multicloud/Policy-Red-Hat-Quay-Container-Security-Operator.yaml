@@ -46,7 +46,7 @@ kind: PlacementBinding
 metadata:
   name: binding-policy-container-security-operator
 placementRef:
-  name: placemenrule-container-security-operator
+  name: placemenrulet-policy-container-security-operator
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
@@ -57,12 +57,12 @@ subjects:
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placemenrule-container-security-operator
+  name: placemenrulet-policy-container-security-operator
   namespace: openshift-operators
 spec:
   clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
+    - type: ManagedClusterConditionAvailable
+      status: "True"
   clusterSelector:
     matchLabels:
-      env : 'multicloud'
+      env: "multicloud"
