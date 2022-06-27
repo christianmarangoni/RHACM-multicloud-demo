@@ -35,7 +35,7 @@ spec:
                   labels:
                     operators.coreos.com/container-security-operator.openshift-operators: ''
                 spec:
-                  channel: stable
+                  channel: stable-3.7
                   installPlanApproval: Automatic
                   name: container-security-operator
                   source: redhat-operators
