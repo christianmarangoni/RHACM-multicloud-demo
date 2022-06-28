@@ -8,12 +8,11 @@ policyDefaults:
   controls: 
     - CM-1 Baseline Configuration
   namespace: policies
-  remediationAction: inform
+  remediationAction: enforce
   severity: medium
   placement:
-    name: policy-uwm-placement
-    labelSelector:
-      env: multicloud
+    clusterselector:
+      env: "multicloud"
 policies:
 - name: policy-user-workload-monitoring
   categories:
