@@ -1,3 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-channel
+---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
@@ -8,11 +13,6 @@ metadata:
 spec:
   type: Git
   pathname: 'https://github.com/christianmarangoni/RHACM-multicloud-demo.git'
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ns-channel
 ---
 apiVersion: v1
 kind: Namespace
