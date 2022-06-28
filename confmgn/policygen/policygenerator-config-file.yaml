@@ -11,8 +11,7 @@ policyDefaults:
   remediationAction: inform
   severity: medium
   placement:
-    name: policy-uwm-placement
-    labelSelector:
+    clusterselector:
       env: multicloud
 policies:
 - name: policy-user-workload-monitoring
