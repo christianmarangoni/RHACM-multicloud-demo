@@ -13,7 +13,7 @@ policyDefaults:
   placement:
     name: policy-uwm-placement
     labelSelector:
-      name: multicloud
+      env: multicloud
 policies:
 - name: policy-user-workload-monitoring
   categories:
