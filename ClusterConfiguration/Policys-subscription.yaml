@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ns-policygenerator
+  name: policy-generator-example
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: policy-user-workload-monitoring
-  namespace: ns-policygenerator
+  name: policy-generator-example
+  namespace: policy-generator-example
 spec:
   componentKinds:
     - group: apps.open-cluster-management.io
@@ -18,15 +18,15 @@ spec:
       - key: app
         operator: In
         values:
-          - policy-user-workload-monitoring
+          - policy-generator-example
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
   annotations:
     apps.open-cluster-management.io/reconcile-rate: high
-  name: ch-rhacm
-  namespace: ns-policygenerator
+  name: policy-generator-example
+  namespace: policy-generator-example
 spec:
   type: Git
   pathname: 'https://github.com/christianmarangoni/RHACM-multicloud-demo.git'
@@ -39,9 +39,9 @@ metadata:
     apps.open-cluster-management.io/git-path: clusterconfiguration
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: policy-user-workload-monitoring
-  name: policy-user-workload-monitoring-subscription
-  namespace: ns-policygenerator
+    app: policy-generator-example
+  name: policy-generator-example-subscription
+  namespace: policy-generator-example
 spec:
   allow:
     - apiVersion: policy.open-cluster-management.io/v1
@@ -50,19 +50,19 @@ spec:
     - apiVersion: apps.open-cluster-management.io/v1
       kinds:
         - PlacementRule
-  channel: ns-policygenerator/ch-rhacm
+  channel: policy-generator-example/policy-generator-example
   placement:
     placementRef:
       kind: PlacementRule
-      name: user-workload-monitoring-placement
+      name: policy-generator-example-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
-    app: policy-user-workload-monitoring
-  name: user-workload-monitoring-placement
-  namespace: ns-policygenerator
+    app: policy-generator-example
+  name: policy-generator-example-placement
+  namespace: policy-generator-example
 spec:
   clusterConditions:
     - status: "True"
