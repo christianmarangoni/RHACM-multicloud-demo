@@ -36,7 +36,7 @@ kind: Subscription
 metadata:
   annotations:
     apps.open-cluster-management.io/git-branch: main
-    apps.open-cluster-management.io/git-path: confmgn/base/policygen
+    apps.open-cluster-management.io/git-path: confmgn
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
     app: policy-generator-uwm
