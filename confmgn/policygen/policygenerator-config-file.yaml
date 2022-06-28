@@ -22,4 +22,4 @@ policies:
     - setup
   disabled: false
   manifests:
-    - path: ./common
+    - path: ./base/manifest
