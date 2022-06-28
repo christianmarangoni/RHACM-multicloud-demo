@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: policy-generator-example
+  name: policy-generator
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: policy-generator-example
-  namespace: policy-generator-example
+  name: policy-generator-uwm
+  namespace: policy-generator
 spec:
   componentKinds:
     - group: apps.open-cluster-management.io
@@ -18,15 +18,15 @@ spec:
       - key: app
         operator: In
         values:
-          - policy-generator-example
+          - policy-generator-uwm
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
   annotations:
     apps.open-cluster-management.io/reconcile-rate: high
-  name: policy-generator-example
-  namespace: policy-generator-example
+  name: policy-generator-ch
+  namespace: policy-generator
 spec:
   type: Git
   pathname: 'https://github.com/christianmarangoni/RHACM-multicloud-demo.git'
@@ -39,9 +39,9 @@ metadata:
     apps.open-cluster-management.io/git-path: confmgn
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: policy-generator-example
-  name: policy-generator-example-subscription
-  namespace: policy-generator-example
+    app: policy-generator-uwm
+  name: policy-generator-uwn-subscription
+  namespace: policy-generator
 spec:
   allow:
     - apiVersion: policy.open-cluster-management.io/v1
@@ -50,19 +50,19 @@ spec:
     - apiVersion: apps.open-cluster-management.io/v1
       kinds:
         - PlacementRule
-  channel: policy-generator-example/policy-generator-example
+  channel: policy-generator/policy-generator-ch
   placement:
     placementRef:
       kind: PlacementRule
-      name: policy-generator-example-placement
+      name: policy-generator-uwm-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
-    app: policy-generator-example
-  name: policy-generator-example-placement
-  namespace: policy-generator-example
+    app: policy-generator-uwm
+  name: policy-generator-uwm-placement
+  namespace: policy-generator
 spec:
   clusterConditions:
     - status: "True"

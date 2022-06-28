@@ -11,11 +11,11 @@ policyDefaults:
   remediationAction: inform
   severity: medium
   placement:
-    name: demo-placement-rule
+    name: policy-uwm-placement
     labelSelector:
       name: all
 policies:
-- name: policy-example-namespace 
+- name: policy-user-workload-monitoring
   categories:
     - setup
   controls: 
