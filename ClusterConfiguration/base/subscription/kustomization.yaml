@@ -5,3 +5,4 @@ resources:
 - acm-channel.yaml
 - namespace-channel.yaml
 - subscription-policygen.yaml
+- namespace-policy.yaml
