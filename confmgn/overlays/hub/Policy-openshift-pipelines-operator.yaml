@@ -44,25 +44,29 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-openshift-tekton-operator
+  name: binding-policy-openshift-tekton-operator-install
+  namespace: openshift-operators
 placementRef:
-  name: placemenrulet-policy-openshift-tekton-operator
+  name: placement-policy-openshift-tekton-operator-install
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-openshift-tekton-operator-install
-  kind: Policy
-  apiGroup: policy.open-cluster-management.io
+  - name: policy-openshift-tekton-operator-install
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placemenrulet-policy-openshift-tekton-operator
+  name: placement-policy-openshift-tekton-operator-install
   namespace: openshift-operators
 spec:
   clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - {key: name, operator: In, values: ["local-cluster"]}
+      - key: name
+        operator: In
+        values:
+          - local-cluster
