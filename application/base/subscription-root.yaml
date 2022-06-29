@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   annotations:
     apps.open-cluster-management.io/git-branch: main
-    apps.open-cluster-management.io/git-path: application/overlays/quick-start-app
+    apps.open-cluster-management.io/git-path: application/overlays
     apps.open-cluster-management.io/reconcile-option: replace
   name: sub-root
   namespace: ns-root
