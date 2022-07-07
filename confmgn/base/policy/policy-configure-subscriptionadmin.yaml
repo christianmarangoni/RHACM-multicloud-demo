@@ -6,6 +6,7 @@ metadata:
     policy.open-cluster-management.io/standards: NIST 800-53
     policy.open-cluster-management.io/categories: CM Configuration Management
     policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+  namespace: default
 spec:
   remediationAction: enforce
   disabled: false
@@ -26,26 +27,26 @@ spec:
                 metadata:
                   name: open-cluster-management:subscription-admin
                 rules:
-                - apiGroups:
-                  - app.k8s.io
-                  resources:
-                  - applications
-                  verbs:
-                  - '*'
-                - apiGroups:
-                  - apps.open-cluster-management.io
-                  resources:
-                  - '*'
-                  verbs:
-                  - '*'
-                - apiGroups:
-                  - ""
-                  resources:
-                  - configmaps
-                  - secrets
-                  - namespaces
-                  verbs:
-                  - '*'
+                  - apiGroups:
+                      - app.k8s.io
+                    resources:
+                      - applications
+                    verbs:
+                      - '*'
+                  - apiGroups:
+                      - apps.open-cluster-management.io
+                    resources:
+                      - '*'
+                    verbs:
+                      - '*'
+                  - apiGroups:
+                      - ''
+                    resources:
+                      - configmaps
+                      - secrets
+                      - namespaces
+                    verbs:
+                      - '*'
             - complianceType: musthave
               objectDefinition:
                 apiVersion: rbac.authorization.k8s.io/v1
@@ -57,34 +58,39 @@ spec:
                   kind: ClusterRole
                   name: open-cluster-management:subscription-admin
                 subjects:
-                - apiGroup: rbac.authorization.k8s.io
-                  kind: User
-                  name: kube:admin
-                - apiGroup: rbac.authorization.k8s.io
-                  kind: User
-                  name: system:admin
+                  - apiGroup: rbac.authorization.k8s.io
+                    kind: User
+                    name: kube:admin
+                  - apiGroup: rbac.authorization.k8s.io
+                    kind: User
+                    name: system:admin
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-policy-configure-subscription-admin-hub
+  namespace: null
 placementRef:
   name: placement-policy-configure-subscription-admin-hub
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-configure-subscription-admin-hub
-  kind: Policy
-  apiGroup: policy.open-cluster-management.io
+  - name: policy-configure-subscription-admin-hub
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: placement-policy-configure-subscription-admin-hub
+  namespace: null
 spec:
   clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - {key: name, operator: In, values: ["local-cluster"]}
+      - key: local-cluster
+        operator: In
+        values:
+          - 'true'
